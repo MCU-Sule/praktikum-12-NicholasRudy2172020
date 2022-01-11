@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Soal 2</title>
+        <meta name =”author” content="Nicholas_Christopher_Rudy 2172020">
+    </head>
+    <style>
+        .container{
+            padding-top: 20px;
+            height: 200px;
+            width: 90%;
+        }
+        .name{
+            background-color: darkgoldenrod;
+            color: yellow;
+            width: 1150px;
+            height: 40px;
+            float: left;
+            margin-top: 30px;
+            font-size: 70px;
+        }
+        .image{
+            border: solid orange;
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            float: left;
+        }
+        .description{
+            border: solid darkgoldenrod;
+            width: 1200px;
+            height: 70px;
+            margin-top: 60px;
+            margin-left: 60px;
+            border-top: none;
+            color: white;
+        }
+    </style>
+    <body style="background-color: black;">
+        <input style="width: 1500px;" onclick="getchampion()" type="button" value="Find me 3 random champion">
+            <div>
+            <div class="container">
+                <div class="head">
+                 <div class="image"></div> <div class="name"></div>
+            </div> <div class="description"></div>
+            </div>
+            <div class="container">
+                <div class="head">
+                <div class="image"></div> <div class="name"></div>
+            </div> <div class="description"></div>
+            </div>
+            <div class="container">
+                <div class="head">
+                <div class="image"></div> <div class="name"></div>
+            </div> <div class="description"></div>
+        </div>
+    </div>
+    <script>
+        function getchampion(){
+            $.getJSON("league.json", function (result){
+                const values = Object.values(result);
+                const random = values[parseInt(Math.random()*values.length)]
+                console.log(result[i].icon);
+                document.querySelector(".image").innerHTML="<img src='"+random.icon+"' width='60px' height='60px'>";
+                document.querySelector(".name").innerHTML=random.name;
+                document.querySelector(".description").innerHTML=random.description;
+            });
+        }
+    </script>
+</body>
+</html>
